@@ -47,8 +47,8 @@ class ServiceBroker implements ServiceBrokerInterface
 
     public function refresh($appId)
     {
-//        $configLoader = $this->app->make('BByer\System\ConfigLoader\Contracts\ConfigLoader');
-        $configLoader = $this->app->make('BByer\System\ConfigLoader\MongoConfigLoader');
+        $configLoader = $this->app->make('BByer\System\ConfigLoader\Contracts\ConfigLoader');
+//        $configLoader = $this->app->make('BByer\System\ConfigLoader\MongConfigLoader');
         $configLoader->setApplication($appId);
         $provider = $this->app['config']->get('system.' . $appId . '.sms.providers.ideamart.default');
         $config = $this->app['config']->get('system.' . $appId . '.sms.providers.ideamart.' . $provider);

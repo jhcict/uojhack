@@ -29,14 +29,15 @@ class MySQLConfigLoader implements ConfigLoader
     public function setApplication($applicationId = null)
     {
         $app_id = isset($applicationId) ? $applicationId : $this->session->getAppId();
-        $db = $this->db->table('applications')->where('id', $app_id)->first();
-        $this->config->set('system.' . $app_id, $db);
+        $db = $this->db->table('applications')->where('app_id', $app_id)->first();
+        \Log::info(unserialize($db->app_data));
+        $this->config->set('system.' . $app_id, unserialize($db->app_data));
     }
 
     public function addApplication()
     {
 
-        $this->db->table('applications')->insert([$this->config->get('ideamart')]);
+        $this->db->table('applications')->insert(['app_data'=>$this->config->get('ideamart')]);
 
 
     }

@@ -3,8 +3,9 @@
 namespace BByer\System\Session;
 
 
-use Illuminate\Contracts\Foundation\Application;
 use BByer\System\Session\Contracts\SessionHandler;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\DatabaseManager;
 
 class DatabaseSessionHandler implements SessionHandler
 {
@@ -17,15 +18,17 @@ class DatabaseSessionHandler implements SessionHandler
 
     protected $session;
 
-    private $app_id;
+    private   $app_id;
 
     /**
      * @param \Illuminate\Contracts\Foundation\Application $application
+     * @param \Illuminate\Database\DatabaseManager         $db
      */
-    public function __construct(Application $application)
+    public function __construct(Application $application, DatabaseManager $db)
     {
         $this->application = $application;
         $this->session = $application->make('session');
+        $this->db = $db->connection('mysql');
     }
 
 
@@ -111,7 +114,7 @@ class DatabaseSessionHandler implements SessionHandler
             return $menu_path->menu_path;
         }
 
-        return "ideamart.".$this->app_id.".ussd.menus.master_menu";
+        return "system." . $this->app_id . ".ussd.menus.master_menu";
 
         // TODO: Implement getMenuPath() method.
     }
@@ -186,11 +189,13 @@ class DatabaseSessionHandler implements SessionHandler
         // TODO: Implement setAction() method.
     }
 
-    public function setAppId($id){
-        $this->app_id  = $id;
+    public function setAppId($id)
+    {
+        $this->app_id = $id;
     }
 
-    public function getAppId(){
+    public function getAppId()
+    {
         return $this->app_id;
     }
 

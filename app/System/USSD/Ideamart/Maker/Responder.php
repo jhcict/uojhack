@@ -79,6 +79,7 @@ class Responder
         $isAction = $this->session->isAction();
         if ($isAction) {
             $action = ($parser->getMenuPlain($session)['options'][$isAction]['action']);
+            \Log::info($parser->getMenuPlain($session));
             $this->variables = ($parser->getMenuPlain($session)['options'][$isAction]['variables']);
         } else {
             $action = ($parser->getMenuPlain($session)['options'][$this->option]['action']);

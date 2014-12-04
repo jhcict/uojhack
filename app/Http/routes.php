@@ -15,6 +15,8 @@ $router->get('/', 'WelcomeController@index');
 
 $router->get('/home', 'HomeController@index');
 
+$router->post('/receiver','UserRequestController@getRequest');
+$router->post('/ussd-receiver','UserRequestController@getUssdRequest');
 /*
 |--------------------------------------------------------------------------
 | Authentication & Password Reset Controllers

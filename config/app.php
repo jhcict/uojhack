@@ -146,6 +146,7 @@ return [
         'BByer\Providers\Ideamart\USSDServiceProvider',
         'BByer\Providers\SystemServiceProvider',
         'BByer\Providers\SMSServiceProvider',
+        'BByer\Providers\ApplicationServiceProvider',
 
 
     ],

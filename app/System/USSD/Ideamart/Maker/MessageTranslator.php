@@ -31,7 +31,10 @@ class MessageTranslator
     protected $serviceBroker;
 
     /**
-     * @param \BByer\System\USSD\Ideamart\Session\Contracts\SessionHandler $sessionHandler
+     * @param \BByer\System\Session\Contracts\SessionHandler|\BByer\System\USSD\Ideamart\Session\Contracts\SessionHandler $sessionHandler
+     * @param \Illuminate\Contracts\Foundation\Application                                                                $application
+     * @param \BByer\System\ConfigLoader\Contracts\ConfigLoader                                                           $configLoader
+     * @param \BByer\System\USSD\Ideamart\Sender\Broker\ServiceBroker                                                     $serviceBroker
      */
     public function __construct(SessionHandler $sessionHandler,
                                 Application $application,
@@ -50,11 +53,13 @@ class MessageTranslator
      * @param \BByer\System\USSD\Ideamart\Maker\Parser         $parser
      * @param \BByer\Source\Applications\ApplicationRepository $applicationRepository
      */
-    public function translate(array $request, Parser $parser, ApplicationRepository $applicationRepository)
+    public function translate(array $request,
+                              Parser $parser,
+                              ApplicationRepository $applicationRepository)
     {
         $message = $request['message'];
         $this->session->setParameters($request);
-        $this->session->setAppId($applicationRepository->searchApplication('ideamart', $request['applicationId'])['_id']);
+        $this->session->setAppId($applicationRepository->searchApplication('ideamart', $request['applicationId'])->app_id);
         $this->configLoader->setApplication();
         $this->updateService();
         $menu = $parser->getMenuPlain();
@@ -74,14 +79,16 @@ class MessageTranslator
     private function messageIterator(array $menu, array $message, Parser $parser)
     {
 
+        \Log::info('into iterator');
         if (empty($message)) {
             if ($parser->getMenuPlain()['type'] == 'master_menu') {
                 $this->session->setOperation("mt-cont");
             }
-            return "";
+//            return "";
 
         }
         foreach ( $message as $key ) {
+            \Log::info('into iterator keys');
             if ($this->session->isAction()) {
                 $option = array_pop($message);
                 $this->session->setOption($option);
