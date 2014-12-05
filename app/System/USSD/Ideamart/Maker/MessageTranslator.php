@@ -84,7 +84,7 @@ class MessageTranslator
             if ($parser->getMenuPlain()['type'] == 'master_menu') {
                 $this->session->setOperation("mt-cont");
             }
-//            return "";
+            return "";
 
         }
         foreach ( $message as $key ) {
