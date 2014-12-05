@@ -45,7 +45,7 @@ class Handler
         $this->receiver = $receiver;
         $this->producer = $producer;
         $this->application = $application;
-        $this->appRepo = $applicationRepository;
+        $thiwxs->appRepo = $applicationRepository;
     }
 
     /**
