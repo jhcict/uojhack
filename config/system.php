@@ -77,7 +77,7 @@ return [
                 'type'     => 'master_menu',
                 'options'  => [
                     '1' => [
-                        'title'    => 'Connect with ABC Backery',
+                        'title'    => 'Connect with ABC Bakery',
                         'type'     => 'sub_menu',
                         'action'   => null,
                         'response' => 'mt-cont',

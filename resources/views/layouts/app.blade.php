@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 
 	<!-- Application Title -->
-	<title>Laravel Application</title>
+	<title>BByer</title>
 
 	<!-- Bootstrap CSS -->
 	<link href="/css/app.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">Laravel</a>
+				<a class="navbar-brand" href="/">BBuyer</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">

@@ -31,6 +31,18 @@ class UserRequestController extends Controller
         \Log::info($message);
 
 
+        $message = explode(' ', $message);
+
+        switch ($message[1]) {
+            case "subscribe": {
+//                $message[2] remains name
+
+
+
+
+            }
+        }
+
         return '';
 
     }
