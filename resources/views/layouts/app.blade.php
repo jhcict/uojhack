@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 
 	<!-- Application Title -->
-	<title>BByer</title>
+	<title>BBuyer Web <Interface></Interface></title>
 
 	<!-- Bootstrap CSS -->
 	<link href="/css/app.css" rel="stylesheet">
