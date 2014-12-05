@@ -50,7 +50,7 @@ class UserRequestController extends Controller
 
     public function getUssdRequest()
     {
-        app('ideamart_ussd')->handle(\Input::all())->makeResponse();
+        app('ideamart_ussd')->handle(\Input::all())->setCustomOperation('mt-cont')->makeResponse();
     }
 
 
