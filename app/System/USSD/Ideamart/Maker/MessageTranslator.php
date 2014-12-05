@@ -81,6 +81,8 @@ class MessageTranslator
 
         \Log::info('into iterator');
         if (empty($message)) {
+            \Log::info($parser->getMenuPlain()['type']);
+            \Log::info($parser->getMenuPlain()['response']);
             if ($parser->getMenuPlain()['type'] == 'master_menu') {
                 $this->session->setOperation("mt-cont");
             }
