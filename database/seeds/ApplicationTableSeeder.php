@@ -10,7 +10,7 @@ class ApplicationTableSeeder  extends Seeder{
         DB::table('applications')->truncate();
         $app = new Application();
 
-        $app->app_id = "APP_000001";
+        $app->app_id = "APP_009076";
         $app->app_data = serialize(app('config')->get('system'));
 
         $app->save();

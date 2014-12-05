@@ -29,6 +29,10 @@ class SMSServiceProvider extends ServiceProvider {
 
 		//Twilio
 //		$handler->registerSender($this->app->make('twilio_sms_sender'),'twilio');
+        // rs 2
+//        rs 5 air
+//        rs 1.3 eti and mobi
+//
 //
 //        Wavecell
 //        $handler->registerSender($this->app->make('wavecell_sms_sender'),'wavecell');
